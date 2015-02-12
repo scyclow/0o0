@@ -1,8 +1,7 @@
 $(function() {
-  var TIME = 0.1;
+  var TIME = 0.075;
   var SIZE = 200;
-  var PROB = 0.3;
-  // test.css('background-color', randColor())
+  var PROB = 0.5;
 
   function randSec(max) {
     var second = 1000;
@@ -25,9 +24,7 @@ $(function() {
 
   function randExec(cmd) {
     if (Math.random() < PROB) {
-      return cmd
-    } else {
-      return
+      cmd();
     }
   }
 
@@ -35,17 +32,25 @@ $(function() {
   function draw() {
     var test = $('div.test');
 
-    randExec(test.css('background-color', randColor()));
-    randExec(test.css('border-radius', randPx(SIZE)));
-    randExec(test.css('height', randPx(SIZE)));
-    randExec(test.css('width', randPx(SIZE)));
+    randExec(function() {
+      test.css('background-color', randColor());
+    });
+    randExec(function() {
+      test.css('border-radius', randPx(SIZE));
+    });
+    randExec(function() {
+      test.css('height', randPx(SIZE));
+    });
+    randExec(function() {
+      test.css('width', randPx(SIZE*2));
+    });
 
     var windowH = $(window).height()/10;
     var windowW = $(window).width();
     // randExec(test.css('margin-left', randPx(windowW)));
     // randExec(test.css('margin-top', randPx(windowH)));
 
-    randExec($('body').css('background-color', randColor()));
+    $('body').css('background-color', randColor())
   }
 
   setInterval(draw, randSec(TIME));
