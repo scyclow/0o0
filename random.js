@@ -28,7 +28,6 @@ $(function() {
     }
   }
 
-
   function draw() {
     var test = $('div.test');
 
@@ -45,8 +44,8 @@ $(function() {
       test.css('width', randPx(SIZE*2));
     });
 
-    var windowH = $(window).height()/10;
-    var windowW = $(window).width();
+    // var windowH = $(window).height()/10;
+    // var windowW = $(window).width();
     // randExec(test.css('margin-left', randPx(windowW)));
     // randExec(test.css('margin-top', randPx(windowH)));
 
@@ -54,5 +53,4 @@ $(function() {
   }
 
   setInterval(draw, randSec(TIME));
-
 });
