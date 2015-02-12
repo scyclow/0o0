@@ -28,7 +28,6 @@ $(function() {
     }
   }
 
-
   function draw() {
     var test = $('div.test');
 
